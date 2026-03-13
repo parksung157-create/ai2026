@@ -1,0 +1,384 @@
+# ai2026
+ai리터러시이해 포트폴리오 2026
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박성준 - AI 리터러시 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#a855f7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Pretendard', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dark mode switch transition */
+        .theme-transition {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="text-2xl font-extrabold tracking-tighter gradient-text">PSJ.LAB</div>
+        
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="#home" class="hover:text-primary transition">홈</a>
+                <a href="#about" class="hover:text-primary transition">목표</a>
+                <a href="#portfolio" class="hover:text-primary transition">과제</a>
+                <a href="#contact" class="hover:text-primary transition">프로필</a>
+            </div>
+            
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 transition-all hover:scale-110 active:scale-95">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden relative">
+        <div class="max-w-4xl text-center z-10">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 rounded-full tracking-wide">Social Welfare x AI Literacy</span>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 leading-tight tracking-tight">
+                데이터로 잇는 <br>
+                <span class="gradient-text italic">복지의 미래</span>
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                사회복지학과 박성준입니다. 생성형 AI와 데이터 분석을 통해 <br>
+                현실의 문제를 해결하고 더 나은 공동체를 디자인합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="px-10 py-4 bg-primary text-white rounded-2xl font-bold text-lg hover:bg-indigo-700 transition shadow-xl shadow-indigo-500/20">
+                    포트폴리오 탐색
+                </a>
+            </div>
+        </div>
+        
+        <!-- Animated Background Shapes -->
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl floating"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl floating" style="animation-delay: 1.5s;"></div>
+    </section>
+
+    <!-- Course Objective -->
+    <section id="about" class="py-32 px-6 bg-white dark:bg-slate-900/50 fade-in-section">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl font-bold mb-8">교과목 핵심 목표</h2>
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+                            <p class="text-lg leading-relaxed text-slate-700 dark:text-slate-300 font-medium italic">
+                                "생성형 AI와 데이터 분석 도구를 활용하여 현실 세계의 문제를 이해하고, 데이터를 해석하며, 그 결과를 의미 있는 이야기와 콘텐츠로 표현하는 능력을 기릅니다."
+                            </p>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                                <span>AI 기본 작동 방식 및 한계 이해</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                <span>데이터 기반의 문제 해결 전략 수립</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                <span>윤리적이고 올바른 도구 활용 능력</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="rounded-[2.5rem] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9757?auto=format&fit=crop&q=80&w=800" alt="Tech Interaction" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-xl">
+                        <span class="text-4xl font-bold gradient-text">AI + Welfare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Task Cards Section -->
+    <section id="portfolio" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 fade-in-section">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Archive : 10 Tasks</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto italic">AI 리터러시를 통해 성장한 10단계의 여정입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Task 1: AI의 이해 (Path updated) -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-primary font-bold">01</div>
+                        <i class="fas fa-brain text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI의 이해</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">구글 노트북LM(NotebookLM)을 활용하여 AI의 정의, 역사, 그리고 생성형 AI의 주요 개념을 체계적으로 정리하고 분석하는 자료 정리 실습을 진행했습니다.</p>
+                    <a href="./02/index.html" class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></a>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-secondary font-bold">02</div>
+                        <i class="fas fa-chart-pie text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">데이터 시각화의 정석</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">복잡한 사회 지표를 인포그래픽으로 시각화하여 메시지의 전달력을 극대화합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 font-bold">03</div>
+                        <i class="fas fa-terminal text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">프롬프트 최적화</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">상황별 맞춤형 프롬프트를 설계하여 복지 행정 업무의 효율을 200% 개선합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 4 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center text-red-500 font-bold">04</div>
+                        <i class="fas fa-user-shield text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">디지털 윤리 가이드</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">AI 사용 시 발생하는 할루시네이션과 저작권 문제를 분석하고 윤리 헌장을 제정합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 5 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center text-amber-500 font-bold">05</div>
+                        <i class="fas fa-feather text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">내러티브 창작</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">데이터에 따뜻한 숨결을 불어넣는 스토리텔링을 통해 공감을 이끌어내는 캠페인을 기획합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 6 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-500 font-bold">06</div>
+                        <i class="fas fa-search-plus text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">사회 문제 심층 분석</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">고립 노인 문제 등 현실의 복지 이슈를 AI 분석 도구로 재정의하고 해법을 탐색합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 7 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center text-pink-500 font-bold">07</div>
+                        <i class="fas fa-images text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">멀티모달 워크숍</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">텍스트, 이미지, 음성을 넘나드는 생성형 AI를 결합하여 입체적인 홍보 자료를 완성합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 8 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center text-teal-500 font-bold">08</div>
+                        <i class="fas fa-lightbulb text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">데이터 인사이트 리포트</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">가설 설정부터 검증까지, 논리적인 데이터 해석 과정을 통해 실질적인 정책 제안서를 작성합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 9 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 font-bold">09</div>
+                        <i class="fas fa-handshake text-slate-300 dark:text-slate-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI-인간 협업 모델</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow">복지사와 AI 비서가 공존하는 미래의 복지관 시스템을 설계하고 워크플로우를 구성합니다.</p>
+                    <button class="group flex items-center gap-2 text-sm font-bold text-primary hover:gap-4 transition-all">VIEW PROJECT <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Task 10 -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col h-full border-2 border-primary/30 fade-in-section">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-bold">10</div>
+                        <i class="fas fa-flag-checkered text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">성찰과 비전</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-8 flex-grow font-semibold">AI 리터러시를 통해 얻은 기술적 도구가 나의 전공 분야에서 어떤 선한 영향력을 미칠지 비전을 공유합니다.</p>
+                    <button class="w-full py-4 bg-primary text-white rounded-2xl font-bold hover:shadow-lg hover:shadow-primary/30 transition shadow-md">포트폴리오 완성</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator Intro Section -->
+    <section id="contact" class="py-32 px-6 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12 bg-white/5 backdrop-blur-xl p-10 md:p-16 rounded-[3rem] border border-white/10">
+                <!-- Profile Image -->
+                <div class="w-48 h-48 rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 border-4 border-primary/30">
+                    <img src="https://i.namu.wiki/i/BlqFjYJzMHQnPl7Ju6uALDRV6duAOU4BgN65uQ3TY2-QeQEmgQoJBKCw8XbNX32iyQ2okYVqZcRj1xmIPiL-bw.webp" 
+                         alt="박성준 프로필 사진" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://via.placeholder.com/200?text=PSJ'">
+                </div>
+                <div class="text-center md:text-left">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">PORTFOLIO CREATOR</span>
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">박성준 <span class="text-lg font-normal text-slate-400">Park Seong-jun</span></h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                            <i class="fas fa-university text-indigo-400"></i>
+                            <span class="text-slate-300">사회복지학과 전공</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                            <i class="fas fa-phone text-indigo-400"></i>
+                            <span class="text-slate-300">010-5637-0198</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="tel:01056370198" class="px-8 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-indigo-100 transition">전화 걸기</a>
+                        <a href="#" class="px-8 py-3 bg-transparent border border-white/20 rounded-xl font-bold hover:bg-white/10 transition">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-slate-950 text-slate-500 text-center border-t border-white/5">
+        <p class="text-sm">© 2024 AI Literacy Portfolio by Park Seong-jun. Built for Human Well-being.</p>
+    </footer>
+
+    <script>
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            html.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar interaction
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'dark:bg-slate-950/90', 'backdrop-blur-md', 'shadow-md', 'py-3');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('bg-white/90', 'dark:bg-slate-950/90', 'backdrop-blur-md', 'shadow-md', 'py-3');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+</html>
